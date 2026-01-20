@@ -12,6 +12,6 @@ public interface PostRepository extends JpaRepository<Post, Long> {
 
     List<Post> findByTitleContainingOrContentContaining(String title, String content);  // Search posts by title or content if any one matches return the post
 
-    List<Post> findByAuthor(Author author);  r
+    List<Post> findByAuthor(Author author);  // Get all posts by a specific author
 
 }
