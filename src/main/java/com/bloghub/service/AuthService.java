@@ -97,7 +97,7 @@ public class AuthService {
                 userName,
                 userEmail,
                 userRole,
-                "Current user fetched successfully"
+                "User fetched successfully"
         );
     }
 }
