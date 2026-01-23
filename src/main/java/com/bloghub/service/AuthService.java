@@ -74,4 +74,30 @@ public class AuthService {
                 "Login Successful"
         );
     }
+
+    //
+    public void logout(HttpSession session) {
+        session.invalidate();//This line invalidates the current HTTP session, effectively logging the user out by removing all session attributes and data.
+    }
+
+    public AuthResponseDto getCurrentUser(HttpSession session) {
+        //Step1: get user id from session
+        Long userId = (Long) session.getAttribute("userId");//This line retrieves the user ID stored in the HTTP session.
+        //Step2: if user id is null, throw exception
+        if (userId == null) {
+            throw new ResourceNotFoundException("No user is currently logged in");
+        }
+        //Step3: get other user details from session so that we can send back to client
+        String userName = (String) session.getAttribute("userName");
+        String userEmail = (String) session.getAttribute("userEmail");
+        String userRole = (String) session.getAttribute("userRole");
+        //Step4: return user details for client
+        return new AuthResponseDto(
+                userId,
+                userName,
+                userEmail,
+                userRole,
+                "User fetched successfully"
+        );
+    }
 }
