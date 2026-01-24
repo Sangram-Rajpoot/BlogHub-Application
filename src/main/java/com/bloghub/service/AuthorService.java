@@ -31,10 +31,31 @@ public class AuthorService {
         return author;// Retrieve an author by ID, throwing an exception if not found
     }
 
-    public Author deleteAuthorById(Long id) {
+    public void deleteAuthorById(Long id) {
         Author author = getAuthorById(id);// Fetch author by ID
         authorRepository.deleteById(id);// Delete the author by ID
-        return author;// Return the deleted author
     }
-    public Author  updateAuthorById(Long id, AuthorUpdateDto)
+
+    public Author updateAuthorById(Long id, AuthorUpdateDto authorUpdateDto) {
+        Author author = getAuthorById(id);// Fetch author by ID
+
+        // Update author fields if they are provided in the DTO
+        if (authorUpdateDto.getName() == null && authorUpdateDto.getAbout() == null && authorUpdateDto.getEmail() == null) {
+            throw new RuntimeException("At least one field (name, about, email) must be provided for update.");// Ensure at least one field is provided
+        }
+        if (authorUpdateDto.getName() != null && authorUpdateDto.getName().isBlank()) {
+            throw new RuntimeException("Name cannot be blank.");// Validate name field
+        }
+        if (authorUpdateDto.getAbout() != null && authorUpdateDto.getAbout().isBlank()) {
+            throw new RuntimeException("About cannot be blank.");// Validate about field
+        }
+        if (authorUpdateDto.getName() != null)
+            author.setName(authorUpdateDto.getName());// Update name if provided
+        if (authorUpdateDto.getAbout() != null)
+            author.setAbout(authorUpdateDto.getAbout());// Update about if provided
+        if (authorUpdateDto.getEmail() != null)
+            author.setEmail(authorUpdateDto.getEmail());// Update email if provided
+        
+        return authorRepository.save(author);// Save and return the updated author
+    }
 }
