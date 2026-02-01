@@ -33,9 +33,9 @@ function showToast(message, type = "info") {
 // Fetch and display stats
 async function loadStats() {
   try {
-    const posts = await apiGet("http://localhost:8082/api/posts/getAll");
-    const authors = await apiGet("http://localhost:8082/api/users");
-    const categories = await apiGet("http://localhost:8082/api/categories");
+    const posts = await apiGet("/api/posts/getAll");
+    const authors = await apiGet("/api/users");
+    const categories = await apiGet("/api/categories");
 
     allPosts = posts || [];
     allAuthors = authors || [];
