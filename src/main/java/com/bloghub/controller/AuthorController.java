@@ -12,6 +12,7 @@ import java.util.List;
 
 @RestController// Indicates that this class is a REST controller in the Spring framework
 @RequestMapping("/api/users")// Base URL mapping for author-related endpoints
+    @CrossOrigin(origins = "*")
 public class AuthorController {
 
     private final AuthorService authorService;// Service for author-related business logic
