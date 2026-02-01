@@ -373,7 +373,7 @@
             loginBtn.innerHTML = '<i class="fas fa-spinner fa-spin"></i> <span>Signing In...</span>';
 
             try {
-                const response = await fetch('http://localhost:8082/api/auth/login', {
+                const response = await fetch('/api/auth/login', {
                     method: 'POST',
                     headers: { 'Content-Type': 'application/json' },
                     credentials: 'include', // ← Important: Receive and store session cookie
