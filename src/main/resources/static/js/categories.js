@@ -23,7 +23,7 @@ async function loadCategories() {
         <i class="fas fa-spinner fa-spin"></i> Loading categories...
       </div>`;
 
-    const categories = await apiGet("http://localhost:8082/api/categories");
+    const categories = await apiGet("/api/categories");
     allCategories = categories;
     displayCategories(categories);
   } catch (error) {
