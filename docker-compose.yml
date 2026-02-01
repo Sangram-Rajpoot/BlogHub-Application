@@ -1,0 +1,19 @@
+version: "3.8"
+
+services:
+  bloghub:
+    build: .
+    container_name: bloghub-app
+    ports:
+      - "8080:8082"
+    environment:
+      DATASOURCE_URL: ${DATASOURCE_URL}
+      DATASOURCE_USER: ${DATASOURCE_USER}
+      DATASOURCE_PASSWORD: ${DATASOURCE_PASSWORD}
+    volumes:
+      - bloghub-data:/app/data
+      - bloghub-logs:/app/logs
+
+volumes:
+  bloghub-data:
+  bloghub-logs:
