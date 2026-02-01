@@ -376,7 +376,7 @@
                 const response = await fetch('/api/auth/login', {
                     method: 'POST',
                     headers: { 'Content-Type': 'application/json' },
-                   // credentials: 'include', // ← Important: Receive and store session cookie
+                    credentials: 'include', // ← Important: Receive and store session cookie
                     body: JSON.stringify({ email, password })
                 });
 
