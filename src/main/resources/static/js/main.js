@@ -132,7 +132,7 @@ function updateNavbar() {
 async function logout() {
   try {
     // Call backend logout endpoint to invalidate session
-    await fetch('http://localhost:8082/api/auth/logout', {
+    await fetch('/api/auth/logout', {
       method: 'POST',
       credentials: 'include' // Send session cookie
     });
