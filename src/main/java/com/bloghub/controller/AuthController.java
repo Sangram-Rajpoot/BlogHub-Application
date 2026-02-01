@@ -15,7 +15,7 @@ import org.springframework.web.bind.annotation.*;
 //This annotation indicates that this class is a RESTful controller, meaning it will handle HTTP requests and return responses in a RESTful manner.
 @RequestMapping("/api/auth")
 //This annotation indicates that this class will handle HTTP requests related to authentication, and the base URL for these requests will be /api/auth.
-    @CrossOrigin(origins = "*")
+  
 public class AuthController {
 
     private final AuthService authService;
