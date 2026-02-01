@@ -13,7 +13,7 @@ document.addEventListener("DOMContentLoaded", () => {
     }
 
     try {
-      await apiPost("http://localhost:8082/api/categories", { catName, descr });
+      await apiPost("https://bloghub-application.onrender.com/api/categories", { catName, descr });
       showAlert("✅ Category created successfully!", "success");
       form.reset();
       setTimeout(() => (window.location.href = "categories.html"), 1000);
