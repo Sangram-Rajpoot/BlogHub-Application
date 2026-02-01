@@ -120,7 +120,7 @@ public class PostController {
         return ResponseEntity.ok(response);
     }
 
-    @GetMapping("/{postId}")// Handles PUT requests to update a post by ID
+    @PutMapping("/{postId}")// Handles PUT requests to update a post by ID
     public ResponseEntity<?> updatePost(
             @PathVariable Long postId,
             @RequestBody @Valid PostUpdateDto request,
