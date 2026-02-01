@@ -328,7 +328,7 @@
                 const response = await fetch('https://bloghub-application.onrender.com/api/auth/register', {
                     method: 'POST',
                     headers: { 'Content-Type': 'application/json' },
-                    credentials: 'include', // ← Include credentials for session
+                    //credentials: 'include', // ← Include credentials for session
                     body: JSON.stringify({ name, email, password, about })
                 });
 
