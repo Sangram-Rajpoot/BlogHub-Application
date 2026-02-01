@@ -18,7 +18,6 @@ import java.util.List;
 
 @RestController// Marks this class as a REST controller
 @RequestMapping("/api/posts")// Base URL for Post-related endpoints
-    @CrossOrigin(origins = "*")
 public class PostController {
 
     private PostService postService;  // Inject PostService
